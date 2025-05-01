@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhai Empire - Umbrella Chilrens Home Charity</title>
+
+    <style type="text/tailwindcss">
+        @theme{
+            --color-primary: #832e33;
+            --color-secondary: #dad824;
+            --color-dark: #2c2c2c;
+            --color-mpesa-green: #3bb54a;
+        }
+    </style>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body x-data="{ mobileMenu: false }" class="relative bg-slate-200 quicksand-regular">
+    <!-- overall navigation bar -->
+    <nav class="sticky top-2.5 z-20 bg-primary w-[95%] lg:w-[98%] mx-auto mt-2.5 rounded-lg shadow-sm p-3">
+        <div class="container flex items-center justify-between w-full mx-auto">
+            <!-- logo -->
+            <div>
+                <h1 class="text-2xl font-bold lg:text-3xl md:mb-1 text-secondary">Bhai Empire</h1>
+                <span class="px-1 py-0.5 italic font-semibold rounded bg-secondary text-primary">Charity Foundation</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden font-semibold text-white lg:flex lg:items-center lg:space-x-10">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-to-help">How To Help</a></li>
+                <li><a href="#memories">Memories</a></li>
+            </ul>
+
+            <!-- Right Side Desktop  -->
+            <div class="flex flex-row-reverse items-center">
+                <div class="hidden lg:block">
+                    <a href="#how-to-help" class="flex items-center justify-center w-full px-3 py-2 font-bold rounded bg-secondary text-primary">
+                        <img class="w-6 h-6" width="96" height="96" src="https://img.icons8.com/pulsar-gradient/96/hand-holding-heart.png" alt="hand-holding-heart" />
+                        <span class="ml-1">Donate</span>
+                    </a>
+                </div>
+
+                <div>
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-1.5 border-2 rounded lg:hidden border-secondary text-secondary"
+                        @click="mobileMenu = true">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay (always visible in this static version) -->
+    <div class="fixed inset-0 z-30 bg-black/50 lg:hidden" x-show="mobileMenu"
+        x-transition.opacity.duration.300ms x-cloak @click="mobileMenu = false">
+    </div>
+
+    <!-- Mobile Sidebar (right side) -->
+    <div
+        class="fixed top-0 right-0 z-40 w-[55%] h-full py-4 px-5 bg-primary shadow-lg lg:hidden"
+        x-transition:enter="transition transform duration-300 ease-out"
+        x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition transform duration-300 ease-in"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full"
+        x-show="mobileMenu" x-cloak>
+        <div class="flex flex-row-reverse w-full">
+            <button class="mb-4 text-secondary" @click="mobileMenu = false">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+        </div>
+        <ul class="font-semibold text-white divide-y divide-secondary/30">
+            <li class="block py-4"><a href="#home">Home</a></li>
+            <li class="block py-4"><a href="#about">About</a></li>
+            <li class="block py-4"><a href="#how-to-help">How To Help</a></li>
+            <li class="block py-4"><a href="#memories">Memories</a></li>
+            <li class="block py-4">
+                <a href="#how-to-help" class="flex items-center justify-center w-full py-2 font-bold rounded bg-secondary text-primary">
+                    <img class="w-6 h-6" width="96" height="96" src="https://img.icons8.com/pulsar-gradient/96/hand-holding-heart.png" alt="hand-holding-heart" />
+                    <span>Donate</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main class="w-[95%] lg:w-[98%] mx-auto py-2.5">
+        <section id="home" class="mt-2 shadow-sm rounded-lg">
+            <div class="relative h-[500px] lg:h-[650px] overflow-hidden rounded-lg shadow-sm">
+                <img src="./imgs/hero-image.png" alt="hero-image"
+                    class="object-cover w-full h-full rounded-lg">
+
+                <div class="absolute inset-0 flex items-end justify-end rounded-lg lg:items-center lg:justify-center bg-black/60">
+                    <div class="pl-4 pr-6 mb-16 text-right lg:pl-0 lg:px-0 lg:text-center lg:mb-0 lg:w-[65%]">
+                        <h3 class="text-4xl tracking-wide quicksand-bold lg:text-6xl text-secondary">Umbrella Children's Home Charity Visit</h3>
+                        <p class="mt-2.5 font-semibold tracking-wider text-white">"Spreading love, hope, and joy"</p>
+
+                        <div class="mt-5 space-x-3 text-sm lg:text-base">
+                            <a href="https://chat.whatsapp.com/G9jKvMiG541JOPWwZG5PHP" target="_blank"
+                                class="inline-flex items-center px-4 py-2 font-bold border-2 rounded bg-secondary text-primary border-secondary">
+                                <span>Join Us</span>
+                                <span class="ml-1 material-symbols-outlined">trending_flat</span>
+                            </a>
+
+                            <a href="#how-to-help" class="inline-flex items-center px-4 py-2 font-bold text-white border-2 border-white rounded">
+                                <span>Contribute</span>
+                                <span class="ml-1 material-symbols-outlined">how_to_vote</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white mt-5 shadow-sm rounded-lg py-4 lg:p-5" id="about">
+            <div class="container mx-auto flex flex-col md:flex-row items-center px-3 lg:px-2">
+                <!-- Text -->
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4 text-primary tracking-wide">About the Charity</h2>
+                    <p class="text-base lg:text-lg text-dark leading-relaxed">
+                        At Bhai Empire, we believe that the best gift we can give children is joy, which comes from being recognized, celebrated, and loved. Our charity activities are about more than simply donating; they're about <span class="font-semibold">bringing people together</span>, <span class="font-semibold">sharing smiles</span>, and <span class="font-semibold">making memories</span> that will last long after we go.
+                    </p>
+
+                    <div class="mt-4 text-base lg:text-lg text-dark leading-relaxed space-y-1">
+                        <p><span class="font-semibold">📅 Date:</span> June 1st</p>
+                        <p><span class="font-semibold">📍 Venue:</span> Umbrella Children's Home, Kamakis, Ruiru</p>
+                        <p><span class="font-semibold">🕒 Time:</span> From morning to afternoon (exact time TBD)</p>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="md:w-1/2 mt-6 md:mt-0 flex justify-center md:ml-3">
+                    <img src="./imgs/about-section-image.jpg" alt="about-image"
+                        class="w-full h-auto rounded-lg shadow-md border border-gray-300">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white mt-5 shadow-sm rounded-lg py-4 lg:p-5" id="how-to-help">
+            <div class="container mx-auto flex flex-col px-3 lg:px-2">
+                <h3 class="text-center font-bold text-3xl lg:text-4xl text-primary tracking-wide">
+                    How To Help
+                </h3>
+
+                <div class="mt-7 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="border-2 border-secondary rounded-lg text-start shadow-sm p-3"
+                        style="box-shadow: 0 2px 8px rgba(218, 216, 36, 0.25);">
+                        <h3 class="text-xl font-semibold">Donate Financially</h3>
+
+                        <blockquote class="mt-3 px-4 py-3 border-l-4 border-secondary bg-secondary/10 text-dark italic rounded text-sm md:text-base">
+                            Your monetary donations will go directly into the charity event, enabling us to provide the kids food, presents, and happy memories throughout the event.
+                        </blockquote>
+
+                        <div class="mt-5">
+                            <!-- Mpesa Paybill  -->
+                            <div class="w-full border border-mpesa-green rounded shadow-sm w-[80%] mx-auto">
+                                <div class="w-full bg-white px-3 py-2 rounded text-center">
+                                    <img src="./imgs/lipa-na-mpesa-logo.png" alt="mpesa-logo" class="w-[90%] mx-auto rounded" />
+
+                                    <h4 class="text-mpesa-green font-bold text-2xl lg:text-3xl uppercase">Paybill **</h4>
+                                </div>
+                                <div class="bg-mpesa-green p-2 text-center">
+                                    <p class="font-semibold text-white">Business Number</p>
+
+                                    <div class="mt-1.5 overflow-x-auto">
+                                        <div class="inline-flex whitespace-nowrap justify-between lg:gap-2">
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                4
+                                            </div>
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                0
+                                            </div>
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                7
+                                            </div>
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                2
+                                            </div>
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                2
+                                            </div>
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                2
+                                            </div>
+                                            <div class="bg-white px-3 py-2 lg:px-5 lg:py-4 border border-mpesa-green text-mpesa-green font-bold rounded text-xl">
+                                                2
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="mt-3 font-semibold text-white">Account Number</p>
+
+                                    <div class="bg-white w-full mt-1.5 py-1.5 rounded text-center text-mpesa-green font-bold text-xl">
+                                        <span class="tracking-wider">PQR5B2 **</span>
+                                    </div>
+
+                                    <div class="mt-3 flex items-center gap-3 text-white text-sm justify-center">
+                                        <div class="flex-1 border-t border-white"></div>
+                                        <span class="whitespace-nowrap font-semibold">Robert Ochieng</span>
+                                        <div class="flex-1 border-t border-white"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-secondary rounded-lg text-start shadow-sm p-3"
+                        style="box-shadow: 0 2px 8px rgba(218, 216, 36, 0.25);">
+                        <h3 class="text-xl font-semibold">Donate Items</h3>
+
+                        <blockquote class="mt-3 px-4 py-3 border-l-4 border-secondary bg-secondary/10 text-dark italic rounded text-sm md:text-base">
+                            "Every item donated lets a child know they are important." Their day at the charity event will be brightened by your generosity.
+                        </blockquote>
+
+                        <h3 class="mt-5 font-semibold text-xl">We Accept:</h3>
+                        <ul class="list-disc text-dark space-y-2 list-inside mt-1">
+                            <li>Clean clothes (all ages and sizes)</li>
+                            <li>Sanitary pads and hygiene products</li>
+                            <li>Storybooks and children’s books</li>
+                            <li>New or gently used toys</li>
+                            <li>School supplies (pens, pencils, notebooks)</li>
+                            <li>Non-perishable food items (optional)</li>
+                            <li>Shoes and slippers (all sizes)</li>
+                            <li>Warm blankets</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-2 border-secondary rounded-lg text-start shadow-sm p-3"
+                        style="box-shadow: 0 2px 8px rgba(218, 216, 36, 0.25);">
+                        <h3 class="text-xl font-semibold">Donate Time</h3>
+
+                        <blockquote class="mt-3 px-4 py-3 border-l-4 border-secondary bg-secondary/10 text-dark italic rounded text-sm md:text-base">
+                            Spending time demonstrates your concern. In the most significant way, your presence and effort may make a child's day.
+                        </blockquote>
+
+                        <h3 class="mt-5 font-semibold text-xl">Show Your Support:</h3>
+                        <ul class="list-disc list-inside text-dark mt-1 space-y-2">
+                            <li>Participate in the charity event</li>
+                            <li>Spread the word on social media or with friends</li>
+                            <li>Help us organize and set up on the day</li>
+                            <li>Remote assistance, every effort matters</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-7">
+                    <h3 class="text-2xl font-semibold text-primary">Your Trust Matters To Us</h3>
+                    <p class="text-base lg:text-lg text-dark leading-relaxed mt-1.5">
+                        Each gift is treated with consideration, accountability, and transparency.
+                        We secure your confidence and generosity by using the Chumz app, which makes sure that every withdrawal or use of cash requires group consent.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white mt-5 shadow-sm rounded-lg py-4 lg:p-5" id="memories">
+            <div class="container mx-auto flex flex-col px-3 lg:px-2">
+                <h3 class="font-bold text-3xl lg:text-4xl text-primary tracking-wide">
+                    Moments of Joy
+                </h3>
+
+                <p class="text-dark mt-1.5">
+                    Many people have found happiness and connection via our charity activities. These joyful, humorous, and communal moments serve as tiny reminders of the significant difference your contribution makes.
+                </p>
+
+                <div class="splide mt-3" aria-label="Memories Slider">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-1.jpg" alt="slide-1" class="rounded-md border border-gray-200">
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-2.jpg" alt="slide-2" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-3.jpg" alt="slide-3" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-4.jpg" alt="slide-4" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-5.jpg" alt="slide-5" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-6.jpg" alt="slide-6" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-7.jpg" alt="slide-7" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-8.jpg" alt="slide-8" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-9.jpg" alt="slide-9" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                            <li class="splide__slide relative">
+                                <img src="./imgs/memories/slide-10.jpg" alt="slide-10" class="rounded-md border border-gray-200">
+                                <div class="absolute bg-black"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <p>Have a memory you'd love to share? <a href="https://drive.google.com/drive/folders/1qAynnhqGbxcQp3-8M35dave-BVNYLJf0?usp=sharing" class="text-primary underline">Upload Your Memory Here</a></p>
+                    <blockquote class="mt-3 text-gray-600 italic pl-4 border-l-4 border-gray-400 text-sm md:text-base">
+                        Please note that all pictures will be reviewed before publishing.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-dark mt-5 shadow-sm rounded-lg p-3">
+            <div class="container flex items-center justify-between w-full mx-auto">
+                <div>
+                    <p class="text-secondary font-semibold tracking-wider text-base md:text-lg">Bhai Empire &copy; 2025</p>
+                </div>
+
+                <ul class="flex items-center justify-center text-secondary space-x-4">
+                    <li>
+                        <a href="https://www.facebook.com/bhaiempire?mibextid=ZbWKwL" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://chat.whatsapp.com/G9jKvMiG541JOPWwZG5PHP" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:bhaisempirefoundation@gmail.com" target="_blank">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var splide = new Splide('.splide', {
+            perPage: 4,
+            perMove: 2,
+            speed: 400,
+            gap: '1rem',
+            rewind: true,
+            rewindSpeed: 1000,
+            breakpoints: {
+                1200: {
+                    perPage: 3,
+                    perMove: 1,
+                },
+                900: {
+                    perPage: 2,
+                    perMove: 1,
+                },
+                640: {
+                    perPage: 1,
+                    perMove: 1,
+                    autoplay: true,
+                    interval: 5000,
+                },
+            }
+        });
+        splide.mount();
+    });
+</script>
+
+</html>
